@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-from app.schema import MachineInput
-from app.predictor import predict_machine_failure
-from app.vehiclereport import generate_maintenance_report
+from schema import MachineInput
+from predictor import predict_machine_failure
+from vehiclereport import generate_maintenance_report
 
 # Load environment variables from .env file
 load_dotenv()
