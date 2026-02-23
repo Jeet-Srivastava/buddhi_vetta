@@ -2,7 +2,7 @@ import joblib
 import pandas as pd
 from pathlib import Path
 
-MODEL_DIR = Path(__file__).parent.parent / "models"
+MODEL_DIR = Path(__file__).parent / "models"
 
 stage1_dict = joblib.load(MODEL_DIR / "stage1_model.pkl")
 stage2_model = joblib.load(MODEL_DIR / "stage2_model.pkl")

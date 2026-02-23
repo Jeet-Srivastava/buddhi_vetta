@@ -1,12 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from schema import MachineInput
 from predictor import predict_machine_failure
 from vehiclereport import generate_maintenance_report
 
 # Load environment variables from .env file
-load_dotenv()
+# load_dotenv()
 
 app = FastAPI()
 
@@ -44,7 +44,11 @@ async def predict(data: MachineInput):
             model=data.model
         )
         
-        return detailed_report
+        # Return both the AI text report AND the raw probability data
+        return {
+            "report": detailed_report,
+            "prediction": prediction_result
+        }
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
